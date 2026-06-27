@@ -1,0 +1,481 @@
+/* Color Palette & Global Variables */
+:root {
+    --bg-dark: #0b111e;
+    --bg-light: #f4f6f9;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent-purple: #5c4ee5;
+    --border-color: #e2e8f0;
+    --transition-smooth: all 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header Navbar Styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    z-index: 200;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #1e293b;
+}
+
+.logo-text span {
+    color: #6366f1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--text-main);
+}
+
+.btn-support {
+    text-decoration: none;
+    background-color: #0f172a;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Container Module */
+.container {
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    width: 1140px; 
+    max-width: 95%;
+    min-height: 690px;
+    margin-top: 60px;
+    display: flex;
+}
+
+/* Form Panel Framework */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: var(--transition-smooth);
+}
+
+.sign-in-container {
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sign-up-container {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transform: scale(0.92);
+}
+
+/* Dynamic Panel State Sliding Transitions */
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%) scale(0.92);
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%) scale(1);
+    opacity: 1;
+    z-index: 5;
+}
+
+form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 65px; 
+    height: 100%;
+    justify-content: center;
+}
+
+.form-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Form Typography Labels */
+.input-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-purple);
+    text-decoration: none;
+}
+
+/* Upgraded Input Field Parameters */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 18px; 
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 15px 18px; 
+    background-color: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 15px; 
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 4px rgba(92, 78, 229, 0.1);
+}
+
+/* Row-Column Structural Rules */
+.name-row {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.2fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.form-col {
+    flex: 1;
+}
+
+/* Prefixes & Custom Graphic Elements Alignment */
+.prefix-input input {
+    padding-left: 38px;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.icon-input input {
+    padding-left: 46px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 16px;
+    pointer-events: none;
+    color: #64748b;
+}
+
+.pass-wrapper input {
+    padding-right: 46px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+    opacity: 0.6;
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+/* Checkboxes */
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 4px 0 20px 0;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper label {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.checkbox-wrapper label a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Autofill Assistive Pill Link */
+.demo-autofill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-purple);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    background: rgba(92, 78, 229, 0.08);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: transform 0.1s ease;
+}
+
+.demo-autofill:hover {
+    transform: translateY(-1px);
+}
+
+/* Interactive Action Control Submits */
+.btn-primary {
+    background-color: var(--accent-purple);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(92, 78, 229, 0.25);
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #493bc9;
+    box-shadow: 0 6px 16px rgba(92, 78, 229, 0.35);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.space-top {
+    margin-top: 8px;
+}
+
+/* Custom Footer Centered Meta Text */
+.footer-tag {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: lowercase; 
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+/* ================= SLIDING INTERACTIVE OVERLAYS ================= */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: linear-gradient(145deg, #0f172a, #1e1b4b);
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: var(--transition-smooth);
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 60px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: var(--transition-smooth);
+}
+
+.overlay-panel h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.overlay-panel p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 34px;
+}
+
+.overlay-left {
+    transform: translateX(-10%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(10%);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    padding: 14px 38px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Form Node Visual Error States */
+.error-input {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin-top: 5px;
+    display: block;
+}

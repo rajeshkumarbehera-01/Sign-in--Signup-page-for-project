@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK Hub - Authentication</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 2L2 12l10 10 10-10L12 2zm0 3.8L18.2 12 12 18.2 5.8 12 12 5.8z" fill="white"/>
+                </svg>
+            </div>
+            <span class="logo-text">RK<span>HUB</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">HELP</a>
+            <a href="#" class="nav-link">PRIVACY</a>
+            <a href="#" class="btn-support">Support</a>
+        </div>
+    </header>
+
+    <div class="container" id="container">
+        
+        <div class="form-container sign-up-container">
+            <form id="signUpForm" novalidate>
+                <h1 class="form-title">Get Started</h1>
+                <p class="form-subtitle">Create your professional account in minutes.</p>
+                
+                <label class="input-label">FULL NAME</label>
+                <div class="name-row">
+                    <div class="input-wrapper"><input type="text" id="firstName" placeholder="First Name" required></div>
+                    <div class="input-wrapper"><input type="text" id="middleName" placeholder="Middle"></div>
+                    <div class="input-wrapper"><input type="text" id="lastName" placeholder="Last Name" required></div>
+                </div>
+
+                <label class="input-label">DESIRED HANDLE</label>
+                <div class="input-wrapper prefix-input">
+                    <span class="input-prefix">@</span>
+                    <input type="text" id="handle" placeholder="alex.chen" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="input-label">MOBILE</label>
+                        <div class="input-wrapper icon-input">
+                            <span class="input-icon">📞</span>
+                            <input type="tel" id="mobile" placeholder="+1 (555) 019-2" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <label class="input-label">WORK EMAIL</label>
+                        <div class="input-wrapper icon-input">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" id="signUpEmail" placeholder="alex.chen@rkl" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="input-label">PASSWORD</label>
+                        <div class="input-wrapper icon-input pass-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signUpPassword" placeholder="••••••••" required>
+                            <span class="toggle-password">👁️</span>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <label class="input-label">CONFIRM PASSWORD</label>
+                        <div class="input-wrapper icon-input pass-wrapper">
+                            <span class="input-icon">🛡️</span>
+                            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                            <span class="toggle-password">👁️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+                </div>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+                
+                <div class="footer-tag">page build by 2023 dec</div>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form id="signInForm" novalidate>
+                <h1 class="form-title">Welcome back</h1>
+                <p class="form-subtitle">Enter your credentials to access your professional workspace.</p>
+                
+                <label class="input-label">WORK EMAIL / USER ID</label>
+                <div class="input-wrapper icon-input">
+                    <span class="input-icon">👤</span>
+                    <input type="email" id="signInEmail" placeholder="alex.chen@rkhub.io" required>
+                </div>
+
+                <div class="label-row">
+                    <label class="input-label">PASSWORD</label>
+                    <a href="#" class="forgot-link">Forgot?</a>
+                </div>
+                <div class="input-wrapper icon-input pass-wrapper">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="signInPassword" placeholder="••••••••••••" required>
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <div class="demo-autofill" id="demoAutofill">
+                    <span>✨ DEMO CREDENTIALS (AUTOFULL)</span>
+                </div>
+
+                <button type="submit" class="btn-primary space-top">Sign In</button>
+                
+                <div class="footer-tag">page build by 2023 dec</div>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome back!</h1>
+                    <p>Login directly to access your parameters, rendering assets archives, and synchronized team workspace templates.</p>
+                    <button class="btn-ghost" id="signInToggle">SIGN IN INSTEAD</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>New to RK Hub?</h1>
+                    <p>Sign up and discover an elegant standard for high-performance creative design and workspace automation.</p>
+                    <button class="btn-ghost" id="signUpToggle">CREATE ACCOUNT</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
